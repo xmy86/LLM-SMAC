@@ -1,17 +1,18 @@
 # LLM-SMAC
 
 <p align="center">
-  <video src="asset/3m.mp4" width="225"/>
-  <video src="asset/2m_vs_1z.mp4" width="225"/>
-  <video src="asset/3s5z.mp4" width="225"/><br/>
-  <video src="asset/bane_vs_bane.mp4" width="225"/>
-  <video src="asset/3s_vs_3z.mp4" width="225"/>
-  <video src="asset/1c3s5z.mp4" width="225"/><br/>
-  <video src="asset/2c_vs_64zg.mp4" width="225"/>
-  <video src="asset/MMM.mp4" width="225"/>
-  <video src="asset/corridor.mp4" width="225"/><br/>
+  <img src="asset/3m.gif" width="250"/>
+  <img src="asset/2m_vs_1z.gif" width="250"/>
+  <img src="asset/3s5z.gif" width="250"/><br/>
+  <img src="asset/bane_vs_bane.gif" width="250"/>
+  <img src="asset/3s_vs_3z.gif" width="250"/>
+  <img src="asset/1c3s5z.gif" width="250"/><br/>
+  <img src="asset/2c_vs_64zg.gif" width="250"/>
+  <img src="asset/MMM.gif" width="250"/>
+  <img src="asset/corridor.gif" width="250"/><br/>
   <i>Demos of LLM-SMAC tasks</i>
 </p>
+
 
 ## Quick Start Guide
 
