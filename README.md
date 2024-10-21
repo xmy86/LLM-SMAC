@@ -50,10 +50,8 @@ $ pip install -r requirements.txt
 
 ### Replace sc2 Folder and Maps
 
-1. 代码中的sc2经过修改，修改了log级别。同时因为SMAC地图中无法获取start_location，和enemy_start_locations，我们修改了初始化属性。如果采用burnysc2/python-sc2中的sc2包，代码会报“属性无法赋值的”错。
-2. 上传了修改版的SMAC地图，增加了获胜/失败的条件。同时增加了单局超时机制：经过500游戏秒之后自动平局，解决游戏无法结束问题。需要将修改版的地图替换原地图。
-3. The sc2 folder is modified according to the SMAC task. We modified the log level as 'CRITICAL' and modify the bot_ai_internal.py of sc2 file because the start_location and the enemy_start_locations cannot be acquired without the 'townhall'. 
-4. We modify the maps of original SMAC tasks and add the victory, tie, and defeat judgments. We also set a timeout mechanism to solve the problem of unfinished tasks. 
+1. The sc2 folder is modified according to the SMAC task. We modified the log level as 'CRITICAL' and modify the bot_ai_internal.py of sc2 file because the start_location and the enemy_start_locations cannot be acquired without the 'townhall'. 
+2. We modify the maps of original SMAC tasks and add the victory, tie, and defeat judgments. We also set a timeout mechanism to solve the problem of unfinished tasks. 
 
 
 ### Replace your API key
