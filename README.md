@@ -1,17 +1,21 @@
 # LLM-SMAC
 
 <p align="center">
-  <img src="asset/3m.gif" width="250"/>
-  <img src="asset/2m_vs_1z.gif" width="250"/>
-  <img src="asset/3s5z.gif" width="250"/><br/>
-  <img src="asset/bane_vs_bane.gif" width="250"/>
-  <img src="asset/3s_vs_3z.gif" width="250"/>
-  <img src="asset/1c3s5z.gif" width="250"/><br/>
-  <img src="asset/2c_vs_64zg.gif" width="250"/>
-  <img src="asset/MMM.gif" width="250"/>
-  <img src="asset/corridor.gif" width="250"/><br/>
+  <img src="asset/3m.gif" width="300"/>
+  <img src="asset/2m_vs_1z.gif" width="300"/>
+  <img src="asset/3s5z.gif" width="300"/><br/>
+  <img src="asset/bane_vs_bane.gif" width="300"/>
+  <img src="asset/3s_vs_3z.gif" width="300"/>
+  <img src="asset/1c3s5z.gif" width="300"/><br/>
+  <img src="asset/2c_vs_64zg.gif" width="300"/>
+  <img src="asset/MMM.gif" width="300"/>
+  <img src="asset/corridor.gif" width="300"/><br/>
+  <img src="asset/10m_vs_11m.gif" width="300"/>
+  <img src="asset/so_many_baneling.gif" width="300"/>
+  <img src="asset/27m_vs_30m.gif" width="300"/><br/>
   <i>Demos of LLM-SMAC tasks</i>
 </p>
+
 
 
 ## Quick Start Guide
@@ -107,6 +111,4 @@ $ python main.py
 After applying the command, there should be a log file in the root directory which can be modified in the file 'LLM\call\_llm_api\call_llm.py'
 
 The generated scripts are also in the root directory, which named as 'res-Victory_Times-Test_Times-Planning_Round-Coding_Round'. When new experiments are conducted, the previously generated Python scripts will be **REMOVED**, so make sure you have store the results.
-
-#### 
 
