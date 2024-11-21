@@ -484,9 +484,24 @@ class BotAIInternal(ABC):
             self._find_expansion_locations()
         self.game_info.map_ramps, self.game_info.vision_blockers = self.game_info._find_ramps_and_vision_blockers()
         self._time_before_step: float = time.perf_counter()
-        self.game_info.player_start_location = Point2.center([self.units(a).center for a in UnitTypeId if len(self.units(a))!=0])
-        self.game_info.start_locations = Point2.center([(self.enemy_units(e)|self.enemy_structures(e)).center for e in UnitTypeId if len(self.enemy_units(e))!=0 or len(self.enemy_structures(e))!=0])
 
+        # Fix for player start location
+        units_center_points = [self.units(a).center for a in UnitTypeId if len(self.units(a)) != 0]
+        if units_center_points:
+            self.game_info.player_start_location = Point2.center(units_center_points)
+        else:
+            # If no units found, use townhall location or map center as fallback
+            self.game_info.player_start_location = self.townhalls.first.position if self.townhalls else self.game_info.map_center
+
+        # Fix for enemy start locations
+        enemy_points = [(self.enemy_units(e) | self.enemy_structures(e)).center for e in UnitTypeId
+                        if len(self.enemy_units(e)) != 0 or len(self.enemy_structures(e)) != 0]
+        if enemy_points:
+            self.game_info.start_locations = Point2.center(enemy_points)
+        else:
+            # If no enemy units/structures found, use the predefined start locations
+            # These are the possible enemy start locations defined by the map
+            self.game_info.start_locations = [pos for pos in self.game_info.start_locations]
 
     @final
     def _prepare_step(self, state, proto_game_info):
@@ -627,6 +642,8 @@ class BotAIInternal(ABC):
                         self.enemy_structures.append(unit_obj)
                     else:
                         self.enemy_units.append(unit_obj)
+        
+        self.units = Units(sorted(self.units, key=lambda u: u.tag), self)
 
         # Force distance calculation and caching on all units using scipy pdist or cdist
         if self.distance_calculation_method == 1:
