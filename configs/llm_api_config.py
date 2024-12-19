@@ -13,13 +13,17 @@ class LLMModelConfig:
 class LLMAPIConfig:
     # LLM 配置
     MODELS = {
-        "deepseek-chat": LLMModelConfig(
-            api_key="Your API key here.",
-            base_url="Base URL here."
+        "deepseek-planner": LLMModelConfig(
+            api_key="sk-6eefe6a0fa8c4879ac8f566925352e49",
+            base_url="https://api.deepseek.com"
         ),
         "deepseek-coder": LLMModelConfig(
-            api_key="Your API key here.",
-            base_url="Base URL here."
+            api_key="sk-34f6e6549c8a4f9fba4987ed1eb8379f",
+            base_url="https://api.deepseek.com"
+        ),
+        "deepseek-critic": LLMModelConfig(
+            api_key="sk-4e811060ebef49d4b4719ccd8bb50d34",
+            base_url="https://api.deepseek.com"
         ),
         "gpt-4": LLMModelConfig(
             api_key="Your API key here.",
@@ -39,9 +43,9 @@ class LLMAPIConfig:
     """
     
     TASK_MODELS = {
-        "planner": "gpt-4",
-        "coder": "gpt-4",
-        "summarizer": "claude-3-5-sonnet-20240620"
+        "planner": "deepseek-planner",
+        "coder": "deepseek-coder",
+        "summarizer": "deepseek-critic"
     }
     @classmethod
     def get_model_config(cls, model_name):
@@ -51,6 +55,10 @@ class LLMAPIConfig:
     def get_task_model(cls, task):
         model_name = cls.TASK_MODELS.get(task)
         return cls.get_model_config(model_name)
+    
+    @classmethod
+    def get_model_dict(cls):
+        return cls.TASK_MODELS
 
 if __name__ == '__main__':
     config = LLMAPIConfig()

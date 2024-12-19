@@ -6,9 +6,8 @@ import os
 
 def pipeline():
 
-
-    os.popen('rm -rf res-*')
-    os.popen('rm -rf *.log')
+    os.system('del /Q res-*')
+    os.system('del /Q *.log')
     planner = LLMPlanner()
 
     plan_times = 10
