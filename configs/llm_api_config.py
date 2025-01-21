@@ -14,15 +14,15 @@ class LLMAPIConfig:
     # LLM 配置
     MODELS = {
         "deepseek-planner": LLMModelConfig(
-            api_key="sk-70be8e7ccfb44243988cff7818ea7018",
+            api_key="sk-4582c636aaa14c79850c9f65d344c952",
             base_url="https://api.deepseek.com"
         ),
         "deepseek-coder": LLMModelConfig(
-            api_key="sk-660fd193a4744e32a44880f55e123521",
+            api_key="sk-ab5622637eb843e38bcba0f548a5ede0",
             base_url="https://api.deepseek.com"
         ),
         "deepseek-critic": LLMModelConfig(
-            api_key="sk-6649eae193d6461b94f6c8ce518a9877",
+            api_key="sk-46bb471426214b41addd5db7706e9f69",
             base_url="https://api.deepseek.com"
         ),
         "gpt-4": LLMModelConfig(
