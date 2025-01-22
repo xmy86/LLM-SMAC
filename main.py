@@ -3,13 +3,11 @@ from api.LLMPlanner import LLMPlanner
 from api.LLMSummarizer import LLMSummarizer
 from LLM.call_llm_api.call_llm import main_logger
 import os
+import platform
 
 def pipeline():
 
-    # os.system('del /Q res-*')
-    # os.system('del /Q *.log')
-    os.popen('rm -rf res-*')
-    os.popen('rm -rf *.log')
+    clean_logs_and_res()
     planner = LLMPlanner()
 
     plan_times = 10
@@ -70,6 +68,17 @@ def pipeline():
             tactic_name = planner.retrival_information(tactics)
             for t in tactic_name:
                 planner.update_history(t, result['win']/result['times'])
+
+def clean_logs_and_res():
+    system_type = platform.system().lower()
+    
+    if system_type == 'windows':
+        os.system('del /Q res-*')
+        os.system('del /Q *.log')
+    else:
+        os.system('rm -rf res-*')
+        os.system('rm -rf *.log')
+
 
 if __name__ == '__main__':
     

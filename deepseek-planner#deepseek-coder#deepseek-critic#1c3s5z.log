@@ -1,0 +1,775 @@
+2025-01-22 10:14:53,994 DEBUG Planner API client created
+2025-01-22 10:14:53,994 DEBUG Model set to: deepseek-planner
+2025-01-22 10:14:53,994 INFO ---------------------Planning---------------------
+2025-01-22 10:14:55,373 ERROR An error occurred: Connection error.
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\http_proxy.py", line 289, in handle_request
+    connect_response = self._connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 99, in handle_request
+    raise exc
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_backends\sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 990, in _request
+    response = self._client.send(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\LLM-SMAC\LLM\call_llm_api\call_llm.py", line 66, in query
+    response = self.client.chat.completions.create(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_utils\_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\resources\chat\completions.py", line 742, in create
+    return self._post(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 954, in request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1024, in _request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2025-01-22 10:14:55,396 DEBUG Coder API client created
+2025-01-22 10:14:55,396 DEBUG Model set to: deepseek-coder
+2025-01-22 10:14:55,396 INFO ##################### Generating #####################
+2025-01-22 10:14:56,968 ERROR An error occurred: Connection error.
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\http_proxy.py", line 289, in handle_request
+    connect_response = self._connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 99, in handle_request
+    raise exc
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_backends\sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 990, in _request
+    response = self._client.send(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\LLM-SMAC\LLM\call_llm_api\call_llm.py", line 66, in query
+    response = self.client.chat.completions.create(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_utils\_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\resources\chat\completions.py", line 742, in create
+    return self._post(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 954, in request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1024, in _request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2025-01-22 10:14:56,973 DEBUG The on_step function defination is wrong. Re-generate the code.
+2025-01-22 10:14:56,973 INFO ##################### Generating #####################
+2025-01-22 10:14:58,448 ERROR An error occurred: Connection error.
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\http_proxy.py", line 289, in handle_request
+    connect_response = self._connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 99, in handle_request
+    raise exc
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_backends\sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 990, in _request
+    response = self._client.send(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\LLM-SMAC\LLM\call_llm_api\call_llm.py", line 66, in query
+    response = self.client.chat.completions.create(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_utils\_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\resources\chat\completions.py", line 742, in create
+    return self._post(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 954, in request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1024, in _request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2025-01-22 10:14:58,452 DEBUG The on_step function defination is wrong. Re-generate the code.
+2025-01-22 10:14:58,452 INFO ##################### Generating #####################
+2025-01-22 10:15:11,998 DEBUG Planner API client created
+2025-01-22 10:15:11,999 DEBUG Model set to: deepseek-planner
+2025-01-22 10:15:11,999 INFO ---------------------Planning---------------------
+2025-01-22 10:15:13,358 ERROR An error occurred: Connection error.
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\http_proxy.py", line 289, in handle_request
+    connect_response = self._connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 99, in handle_request
+    raise exc
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_backends\sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 990, in _request
+    response = self._client.send(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\LLM-SMAC\LLM\call_llm_api\call_llm.py", line 66, in query
+    response = self.client.chat.completions.create(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_utils\_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\resources\chat\completions.py", line 742, in create
+    return self._post(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 954, in request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1024, in _request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2025-01-22 10:15:13,381 DEBUG Coder API client created
+2025-01-22 10:15:13,381 DEBUG Model set to: deepseek-coder
+2025-01-22 10:15:13,381 INFO ##################### Generating #####################
+2025-01-22 10:15:14,851 ERROR An error occurred: Connection error.
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\http_proxy.py", line 289, in handle_request
+    connect_response = self._connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 99, in handle_request
+    raise exc
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_backends\sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 990, in _request
+    response = self._client.send(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\LLM-SMAC\LLM\call_llm_api\call_llm.py", line 66, in query
+    response = self.client.chat.completions.create(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_utils\_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\resources\chat\completions.py", line 742, in create
+    return self._post(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 954, in request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1024, in _request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2025-01-22 10:15:14,856 DEBUG The on_step function defination is wrong. Re-generate the code.
+2025-01-22 10:15:14,856 INFO ##################### Generating #####################
+2025-01-22 10:15:16,404 ERROR An error occurred: Connection error.
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\http_proxy.py", line 289, in handle_request
+    connect_response = self._connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 99, in handle_request
+    raise exc
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_backends\sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 990, in _request
+    response = self._client.send(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\LLM-SMAC\LLM\call_llm_api\call_llm.py", line 66, in query
+    response = self.client.chat.completions.create(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_utils\_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\resources\chat\completions.py", line 742, in create
+    return self._post(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 954, in request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1024, in _request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2025-01-22 10:15:16,409 DEBUG The on_step function defination is wrong. Re-generate the code.
+2025-01-22 10:15:16,409 INFO ##################### Generating #####################
+2025-01-22 10:15:17,938 ERROR An error occurred: Connection error.
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\http_proxy.py", line 289, in handle_request
+    connect_response = self._connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 99, in handle_request
+    raise exc
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_backends\sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 990, in _request
+    response = self._client.send(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\LLM-SMAC\LLM\call_llm_api\call_llm.py", line 66, in query
+    response = self.client.chat.completions.create(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_utils\_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\resources\chat\completions.py", line 742, in create
+    return self._post(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 954, in request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1024, in _request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2025-01-22 10:15:17,943 DEBUG The on_step function defination is wrong. Re-generate the code.
+2025-01-22 10:15:17,943 INFO ##################### Generating #####################
+2025-01-22 10:15:19,491 ERROR An error occurred: Connection error.
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\http_proxy.py", line 289, in handle_request
+    connect_response = self._connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 99, in handle_request
+    raise exc
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_backends\sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 990, in _request
+    response = self._client.send(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\LLM-SMAC\LLM\call_llm_api\call_llm.py", line 66, in query
+    response = self.client.chat.completions.create(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_utils\_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\resources\chat\completions.py", line 742, in create
+    return self._post(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 954, in request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1024, in _request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2025-01-22 10:15:19,495 DEBUG The on_step function defination is wrong. Re-generate the code.
+2025-01-22 10:15:19,496 INFO ##################### Generating #####################
+2025-01-22 10:15:21,083 ERROR An error occurred: Connection error.
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 72, in map_httpcore_exceptions
+    yield
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 236, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 216, in handle_request
+    raise exc from None
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection_pool.py", line 196, in handle_request
+    response = connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\http_proxy.py", line 289, in handle_request
+    connect_response = self._connection.handle_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 99, in handle_request
+    raise exc
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 76, in handle_request
+    stream = self._connect(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_sync\connection.py", line 154, in _connect
+    stream = stream.start_tls(**kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_backends\sync.py", line 152, in start_tls
+    with map_exceptions(exc_map):
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 990, in _request
+    response = self._client.send(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 926, in send
+    response = self._send_handling_auth(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 954, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 991, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_client.py", line 1027, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 235, in handle_request
+    with map_httpcore_exceptions():
+  File "D:\envs\SMAC_LLM\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "D:\envs\SMAC_LLM\lib\site-packages\httpx\_transports\default.py", line 89, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: EOF occurred in violation of protocol (_ssl.c:997)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\LLM-SMAC\LLM\call_llm_api\call_llm.py", line 66, in query
+    response = self.client.chat.completions.create(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_utils\_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\resources\chat\completions.py", line 742, in create
+    return self._post(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 954, in request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1014, in _request
+    return self._retry_request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1092, in _retry_request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1024, in _request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+2025-01-22 10:15:21,088 DEBUG The on_step function defination is wrong. Re-generate the code.
+2025-01-22 10:15:21,088 INFO ---------------------Planning---------------------
+2025-01-22 10:15:24,493 DEBUG Planner API client created
+2025-01-22 10:15:24,494 DEBUG Model set to: deepseek-planner
+2025-01-22 10:15:24,494 INFO ---------------------Planning---------------------
+2025-01-22 10:15:24,626 ERROR An error occurred: Error code: 400 - {'error': {'message': 'Model Not Exist', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+Traceback (most recent call last):
+  File "d:\LLM-SMAC\LLM\call_llm_api\call_llm.py", line 66, in query
+    response = self.client.chat.completions.create(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_utils\_utils.py", line 274, in wrapper
+    return func(*args, **kwargs)
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\resources\chat\completions.py", line 742, in create
+    return self._post(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1277, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 954, in request
+    return self._request(
+  File "D:\envs\SMAC_LLM\lib\site-packages\openai\_base_client.py", line 1058, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'Model Not Exist', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+2025-01-22 10:15:24,635 DEBUG Coder API client created
+2025-01-22 10:15:24,635 DEBUG Model set to: deepseek-coder
+2025-01-22 10:15:24,635 INFO ##################### Generating #####################
+2025-01-22 10:15:38,194 DEBUG Querying model: deepseek-coder
+2025-01-22 10:15:38,194 DEBUG 
+You are a StarCraft II player and a helpful assistant and you are facing the micro-management tasks.
+I will describe the map and the units on the map. You should not build any new buildings or new units or expand your base. 
+You should concentrate on the micro-management strategy.
+I will give you the strategy in JSON array format. The keys are 'tactic_name' and 'tactic_description'.
+You should implement the strategy in python with burnysc2/pythonsc2 package.
+You should concentrate on implementing the 'def async on_step(self, iteration: int):' function.
+The result should be surrounded in the '```python' and '```' structure. 
+
+2025-01-22 10:15:38,194 DEBUG The map is 1c3s5z.
+You can control 1 Colossus unit, 3 Stalker units and 5 Zealot Units.
+The enemy also controls 1 Colossus unit, 3 Stalker units and 5 Zealot Units
+The Colossus unit has 200 health, 150 shield, 1 defense, 7 attacking range, 3.15 speed, 10*2 damage with 18.7 DPS.
+The Stalker unit has 80 health, 80 shield, 1 defense, 6 attacking range, 4.13 speed, 13 damage with 9.7 DPS.
+The Zealot unit has 100 health, 50 shield, 1 defense, 0.1 attacking range, 3.15 speed, 8*2 damage with 18.6 DPS.
+All the units has no abilities such as blinking or equipments. The hate value will directly change to other units in range after retreat.
+The map is a 32*32 sized square map. 
+The available area of x axis is from 0 to 32, and the y axis is from 7 to 25.
+The enemy units are at (23, 16) point and your Stalker units are at (9, 16) point initially.
+The ememy controls all the enemy units to move and attack towards (9, 16) point along the way.
+There is no terrain advantages nor choke points in this map. You cannot get back to the enemy units.
+
+You should not use the await keyword. Make sure to check whether the list variables are empty or not.
+
+
+ The tactic is: An error occurred: Error code: 400 - {'error': {'message': 'Model Not Exist', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
+Please implement the code.
+2025-01-22 10:15:38,194 DEBUG Query successful
+2025-01-22 10:15:38,195 DEBUG ```python
+from sc2 import BotAI
+from sc2.ids.unit_typeid import UnitTypeId
+from sc2.position import Point2
+
+class MicroBot(BotAI):
+    async def on_step(self, iteration: int):
+        # Get all our units
+        colossus = self.units(UnitTypeId.COLOSSUS).first
+        stalkers = self.units(UnitTypeId.STALKER)
+        zealots = self.units(UnitTypeId.ZEALOT)
+
+        # Get enemy units
+        enemy_colossus = self.enemy_units(UnitTypeId.COLOSSUS).first
+        enemy_stalkers = self.enemy_units(UnitTypeId.STALKER)
+        enemy_zealots = self.enemy_units(UnitTypeId.ZEALOT)
+
+        # Define the initial position of our Stalkers
+        initial_stalker_position = Point2((9, 16))
+
+        # If our Colossus is alive, focus on kiting enemy Zealots
+        if colossus:
+            enemy_zealots_in_range = self.enemy_units.filter(
+                lambda unit: unit.type_id == UnitTypeId.ZEALOT and unit.distance_to(colossus) <= 7
+            )
+            if enemy_zealots_in_range:
+                # Move away from enemy Zealots while attacking
+                colossus.move(colossus.position.towards(initial_stalker_position, -7))
+                colossus.attack(enemy_zealots_in_range.closest_to(colossus))
+            else:
+                # Attack the closest enemy unit
+                closest_enemy = self.enemy_units.closest_to(colossus)
+                if closest_enemy:
+                    colossus.attack(closest_enemy)
+
+        # Control Stalkers to focus on enemy Colossus
+        if stalkers:
+            if enemy_colossus:
+                for stalker in stalkers:
+                    stalker.attack(enemy_colossus)
+            else:
+                # If no enemy Colossus, attack the closest enemy unit
+                for stalker in stalkers:
+                    closest_enemy = self.enemy_units.closest_to(stalker)
+                    if closest_enemy:
+                        stalker.attack(closest_enemy)
+
+        # Control Zealots to engage enemy Stalkers
+        if zealots:
+            if enemy_stalkers:
+                for zealot in zealots:
+                    zealot.attack(enemy_stalkers.closest_to(zealot))
+            else:
+                # If no enemy Stalkers, attack the closest enemy unit
+                for zealot in zealots:
+                    closest_enemy = self.enemy_units.closest_to(zealot)
+                    if closest_enemy:
+                        zealot.attack(closest_enemy)
+```
+2025-01-22 10:15:38,199 DEBUG Start Testing
