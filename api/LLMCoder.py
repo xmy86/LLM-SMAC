@@ -11,11 +11,6 @@ import platform
 
 
 def rename_temp_file(src, dst):
-    """
-    不同系统下使用不同的文件重命令:
-      - Windows: move
-      - macOS/Linux: mv
-    """
     system_type = platform.system().lower()
     if system_type == 'windows':
         os.system(f'move {src} {dst}')
