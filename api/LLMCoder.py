@@ -5,7 +5,22 @@ import config
 import os
 import re
 import subprocess
+import chardet
 from multiprocessing import Process, Queue
+import platform
+
+
+def rename_temp_file(src, dst):
+    """
+    不同系统下使用不同的文件重命令:
+      - Windows: move
+      - macOS/Linux: mv
+    """
+    system_type = platform.system().lower()
+    if system_type == 'windows':
+        os.system(f'move {src} {dst}')
+    else:
+        os.system(f'mv {src} {dst}')
 
 
 class LLMCoder:
@@ -13,7 +28,6 @@ class LLMCoder:
     def __init__(self):
 
         self.coder_bot = TextChatbot("coder")
-        
 
         self.system_content = '''
 You are a StarCraft II player and a helpful assistant and you are facing the micro-management tasks.
@@ -34,12 +48,10 @@ You should not use the await keyword. Make sure to check whether the list variab
         self.prefix_code = config.prefix_code
         self.post_code = config.post_code
 
-
     def generate_code(self, tactic, promotion=''):
 
-        prompt = self.base_task_content +'\n'+promotion+'\n The tactic is: ' + str(tactic) + '\nPlease implement the code.'
+        prompt = self.base_task_content + '\n' + promotion + '\n The tactic is: ' + str(tactic) + '\nPlease implement the code.'
 
-        
         response = self.coder_bot.query(self.system_content, prompt, maintain_history=True)
 
         if 'async def on_step(self, iteration: int):' not in response:
@@ -48,7 +60,7 @@ You should not use the await keyword. Make sure to check whether the list variab
             code = re.search(r'async def on_step\(self, iteration: int\):(.*?)```', response, re.DOTALL).group(1)
         elif 'def on_step(self, iteration: int):':
             code = re.search(r'def on_step\(self, iteration: int\):(.*?)```', response, re.DOTALL).group(1)
-        
+
         total_code = self.prefix_code + '\n    async def on_step(self, iteration: int):\n' + code + self.post_code
 
         with open('res-temp.py', 'w') as writer:
@@ -56,18 +68,14 @@ You should not use the await keyword. Make sure to check whether the list variab
 
         return response
 
-
-
-
-
-
     def test_code(self, plan_idx, iter_idx):
 
         main_logger.debug('Start Testing')
         print('Start Testing')
         running = subprocess.Popen('python res-temp.py', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        invoke_result = running.stdout.read().decode('utf-8')
-        
+        output = running.stdout.read()
+        detected_encoding = chardet.detect(output)['encoding']
+        invoke_result = output.decode(detected_encoding)
 
         units_num = 0
         enemy_num = 0
@@ -86,21 +94,17 @@ You should not use the await keyword. Make sure to check whether the list variab
             # BUG
             print('-------------------BUG!!!--------------------')
             print(invoke_result)
-            os.popen('mv res-temp.py res-{}-{}-temp{}-{}.py'.format('X', times, plan_idx, iter_idx))
+            rename_temp_file('res-temp.py', 'res-{}-{}-temp{}-{}.py'.format('X', times, plan_idx, iter_idx))
             return {'type': 'bug', 'message': invoke_result}
 
         elif invoke_result == '':
-
-            os.popen('mv res-temp.py res-{}-{}-temp{}-{}.py'.format('X', times, plan_idx, iter_idx))
+            rename_temp_file('res-temp.py', 'res-{}-{}-temp{}-{}.py'.format('X', times, plan_idx, iter_idx))
             return {'type': 'bug', 'message': 'code incomplete'}
 
         else:
-            
-
             q = Queue()
-
             process_list = []
-            
+
             for _ in range(times):
                 p = Process(target=run_game, args=(q,))
                 p.start()
@@ -108,13 +112,14 @@ You should not use the await keyword. Make sure to check whether the list variab
 
             for i in range(times):
                 process_list[i].join()
-            
+
             for _ in range(times):
                 data = q.get()
                 code_result = data['result']
                 if code_result == 'bug':
-                    os.popen('mv res-temp.py res-{}-{}-temp{}-{}.py'.format('X', times, plan_idx, iter_idx))
-                    return {'type': 'bug', 'message': data['content']} 
+                    rename_temp_file('res-temp.py', 'res-{}-{}-temp{}-{}.py'.format('X', times, plan_idx, iter_idx))
+                    return {'type': 'bug', 'message': data['content']}
+
                 u, eu, r, s, dd, dt, ds = data['content']
                 if r == 'v':
                     v += 1
@@ -134,34 +139,50 @@ You should not use the await keyword. Make sure to check whether the list variab
             damage_dealt /= times
             damage_taken /= times
             damage_shield /= times
-
             units_num /= times
             enemy_num /= times
 
             print('You Win {}, Tie {}, and Lose {} out of {} times. There are {} units and {} enemy units left.'.format(v, t, d, times, units_num, enemy_num))
             print('You achieve {} scores, give {} damages to the enemy, take {} damage on health, and take {} damage on shield on average.'.format(score, damage_dealt, damage_taken, damage_shield))
-            main_logger.info('You Win {}, Tie {}, and Lose {} out of {} times. There are {} units and {} enemy units left.'.format(v, t, d, times, units_num, enemy_num) + 
-            'You achieve {} scores, give {} damages to the enemy, take {} damage on health, and take {} damage on shield on average.'.format(score, damage_dealt, damage_taken, damage_shield)
-                )
+            main_logger.info('You Win {}, Tie {}, and Lose {} out of {} times. There are {} units and {} enemy units left.'.format(v, t, d, times, units_num, enemy_num) +
+                             'You achieve {} scores, give {} damages to the enemy, take {} damage on health, and take {} damage on shield on average.'.format(score, damage_dealt, damage_taken, damage_shield)
+                             )
 
-
-            os.popen('mv res-temp.py res-{}-{}-temp{}-{}.py'.format(v, times, plan_idx, iter_idx))
+            rename_temp_file('res-temp.py', 'res-{}-{}-temp{}-{}.py'.format(v, times, plan_idx, iter_idx))
 
             for p in process_list:
                 p.close()
 
-            return {'type': 'result', 'message': {"win": v, "tie": t, "lose": d, "times": times, "score": score, "damage": damage_dealt, "damage_taken": damage_taken, "damage_shield": damage_shield, "units_num": units_num, "enemy_num": enemy_num}}
+            return {
+                'type': 'result',
+                'message': {
+                    "win": v,
+                    "tie": t,
+                    "lose": d,
+                    "times": times,
+                    "score": score,
+                    "damage": damage_dealt,
+                    "damage_taken": damage_taken,
+                    "damage_shield": damage_shield,
+                    "units_num": units_num,
+                    "enemy_num": enemy_num
+                }
+            }
 
 
 def run_game(q):
 
     r = ''
-
     running = subprocess.Popen('python res-temp.py', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    result = running.stdout.read().decode('utf-8')
+
+    output = running.stdout.read()
+    detected_encoding = chardet.detect(output)['encoding']
+    result = output.decode(detected_encoding)
+
     if 'Traceback' in result or 'Error' in result:
-        q.put({'result': 'bug', 'content':result})
+        q.put({'result': 'bug', 'content': result})
         return
+
     cells = result.split('\n')
     score = float(cells[-7])
     damage_dealt = float(cells[-6])
@@ -169,12 +190,14 @@ def run_game(q):
     damage_shield = float(cells[-4])
     unit_num = float(cells[-3])
     enemy_unit_num = float(cells[-2])
+
     if 'Result.Victory' in result:
         r = 'v'
         enemy_unit_num = 0
     elif 'Result.Defeat' in result:
         r = 'd'
         unit_num = 0
-    else: 
+    else:
         r = 't'
-    q.put({'result': 'data', 'content':(unit_num, enemy_unit_num, r, score, damage_dealt, damage_taken, damage_shield)})
+
+    q.put({'result': 'data', 'content': (unit_num, enemy_unit_num, r, score, damage_dealt, damage_taken, damage_shield)})
