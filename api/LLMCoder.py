@@ -163,12 +163,12 @@ def run_game(q):
         q.put({'result': 'bug', 'content':result})
         return
     cells = result.split('\n')
-    score = float(cells[1])
-    damage_dealt = float(cells[2])
-    damage_taken = float(cells[3])
-    damage_shield = float(cells[4])
-    unit_num = float(cells[5])
-    enemy_unit_num = float(cells[6])
+    score = float(cells[-7])
+    damage_dealt = float(cells[-6])
+    damage_taken = float(cells[-5])
+    damage_shield = float(cells[-4])
+    unit_num = float(cells[-3])
+    enemy_unit_num = float(cells[-2])
     if 'Result.Victory' in result:
         r = 'v'
         enemy_unit_num = 0
