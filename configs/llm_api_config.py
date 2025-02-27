@@ -14,8 +14,8 @@ class LLMAPIConfig:
     # LLM 配置
     MODELS = {
         "deepseek-chat": LLMModelConfig(
-            api_key="Your API key here.",
-            base_url="Base URL here."
+            api_key="sk-9b13a70fa21a4595b233134c523dcb9e",
+            base_url="https://api.deepseek.com"
         ),
         "deepseek-coder": LLMModelConfig(
             api_key="Your API key here.",
@@ -39,9 +39,9 @@ class LLMAPIConfig:
     """
     
     TASK_MODELS = {
-        "planner": "gpt-4",
-        "coder": "gpt-4",
-        "summarizer": "claude-3-5-sonnet-20240620"
+        "planner": "deepseek-chat",
+        "coder": "deepseek-chat",
+        "summarizer": "deepseek-chat"
     }
     @classmethod
     def get_model_config(cls, model_name):

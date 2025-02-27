@@ -23,8 +23,8 @@ def setup_logger(name, log_file, level=logging.INFO):
     return logger
 
 # 设置主日志记录器
-model_info = LLMAPIConfig.get_model_dict()
-main_logger = setup_logger('main_logger', '{}#{}#{}#{}.log'.format(model_info['planner'], model_info['coder'], model_info['summarizer'], config.map_name), level=logging.DEBUG)
+# model_info = LLMAPIConfig.get_model_dict()
+main_logger = setup_logger('main_logger', 'main.log', level=logging.DEBUG)
 
 class BaseChatbot:
     def __init__(self, task):
